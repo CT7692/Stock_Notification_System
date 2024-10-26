@@ -77,7 +77,7 @@ av_parameters = {
     "apikey": os.environ.get("AV_API_KEY")
 }
 
-av_response = requests.get("https://www.alphavantage.co/query", params=av_parameters)
+av_response = requests.get("https://www.alphavantage.co/query", params=av_parameters, timeout=60)
 av_response.raise_for_status()
 change = get_stock_price(av_response)
 
